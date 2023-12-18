@@ -11,4 +11,7 @@ index build time:
 | rust   | 0.01        | 9.96%     | 375.20 |
 | rust   | 0.01        | 86.68%    | 109.34 | k 1000 |
 | rust   | no          | 97.90%    | 248.89 |
-| c      | no          | 95.41%    | 32.96  |
+| c      | no first    | 95.41%    | 32.96  |
+| c      | no second   | 95.41%    | 475.95 |
+
+PS: The first time of c version need to load index into memory, so it's slow.
