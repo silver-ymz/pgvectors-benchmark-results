@@ -15,10 +15,14 @@ filter:
 
 without filter:
 
-| option | k   | precision | rps    | note | file                           |
-| ------ | --- | --------- | ------ | ---- | ------------------------------ |
-| rust   | 100 | 97.90%    | 248.89 |      | [rust-100.json](rust-100.json) |
-| c      | 50  | 92.47%    | 644.35 |      | [c-50.json](c-50.json)         |
-| c      | 100 | 95.41%    | 475.95 |      | [c-100.json](c-100.json)       |
-| c      | 200 | 96.90%    | 307.75 |      | [c-200.json](c-200.json)       |
-| c      | 500 | 97.94%    | 161.01 |      | [c-500.json](c-500.json)       |
+| option | k   | precision | rps    | note       | file                                                 |
+| ------ | --- | --------- | ------ | ---------- | ---------------------------------------------------- |
+| rust   | 100 | 97.90%    | 248.89 | 5 segments | [rust-100-5-segments.json](rust-100-5-segments.json) |
+| rust   | 50  | 92.49%    | 881.40 |            | [rust-50.json](rust-50.json)                         |
+| rust   | 100 | 95.68%    | 809.21 |            | [rust-100.json](rust-100.json)                       |
+| rust   | 200 | 97.09%    | 783.08 |            | [rust-200.json](rust-200.json)                       |
+| rust   | 500 | 97.95%    | 594.50 |            | [rust-500.json](rust-500.json)                       |
+| c      | 50  | 92.47%    | 644.35 |            | [c-50.json](c-50.json)                               |
+| c      | 100 | 95.41%    | 475.95 |            | [c-100.json](c-100.json)                             |
+| c      | 200 | 96.90%    | 307.75 |            | [c-200.json](c-200.json)                             |
+| c      | 500 | 97.94%    | 161.01 |            | [c-500.json](c-500.json)                             |
