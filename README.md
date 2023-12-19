@@ -1,7 +1,9 @@
 laion-768-5m-ip
 
 index build time:
-- pgvectors: 38:05
+- pgvectors:
+  - hnsw (default 5 segments): 38:05
+  - hnsw + SQ: 1:48:00
 - pgvector: 3:29:00
 
 filter:
@@ -22,6 +24,10 @@ without filter:
 | rust   | 100 | 95.68%    | 809.21 |            | [rust-100.json](rust-100.json)                       |
 | rust   | 200 | 97.09%    | 783.08 |            | [rust-200.json](rust-200.json)                       |
 | rust   | 500 | 97.95%    | 594.50 |            | [rust-500.json](rust-500.json)                       |
+| rust   | 50  | 90.66%    | 809.40 | SQ         | [rust-50-sq.json](rust-50-sq.json)                   |
+| rust   | 100 | 93.60%    | 761.87 | SQ         | [rust-100-sq.json](rust-100-sq.json)                 |
+| rust   | 200 | 95.04%    | 699.77 | SQ         | [rust-200-sq.json](rust-200-sq.json)                 |
+| rust   | 500 | 95.75%    | 536.11 | SQ         | [rust-500-sq.json](rust-500-sq.json)                 |
 | c      | 50  | 92.47%    | 644.35 |            | [c-50.json](c-50.json)                               |
 | c      | 100 | 95.41%    | 475.95 |            | [c-100.json](c-100.json)                             |
 | c      | 200 | 96.90%    | 307.75 |            | [c-200.json](c-200.json)                             |
