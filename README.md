@@ -8,6 +8,7 @@ index build time:
   - hnsw : 
   - hnsw + SQ: 1:48:00
   - hnsw + PQ x4: 10:40:40
+  - hnsw + PQ x64: 1:54:38
 - pgvector: 3:29:00
 
 filter:
@@ -36,6 +37,10 @@ without filter:
 | PQ x4  | 100 | 93.96%    | 354.34 |            | [rust-100-pq-x4.json](rust-100-pq-x4.json)           |
 | PQ x4  | 200 | 95.27%    | 236.62 |            | [rust-200-pq-x4.json](rust-200-pq-x4.json)           |
 | PQ x4  | 500 | 96.02%    | 129.32 |            | [rust-500-pq-x4.json](rust-500-pq-x4.json)           |
+| PQ x64 | 50  | 14.81%    | 926.08 |            | [rust-50-pq-x64.json](rust-50-pq-x64.json)           |
+| PQ x64 | 100 | 17.78%    | 865.11 |            | [rust-100-pq-x64.json](rust-100-pq-x64.json)         |
+| PQ x64 | 200 | 19.90%    | 803.96 |            | [rust-200-pq-x64.json](rust-200-pq-x64.json)         |
+| PQ x64 | 500 | 21.63%    | 619.43 |            | [rust-500-pq-x64.json](rust-500-pq-x64.json)         |
 | c      | 50  | 92.47%    | 644.35 |            | [c-50.json](c-50.json)                               |
 | c      | 100 | 95.41%    | 475.95 |            | [c-100.json](c-100.json)                             |
 | c      | 200 | 96.90%    | 307.75 |            | [c-200.json](c-200.json)                             |
