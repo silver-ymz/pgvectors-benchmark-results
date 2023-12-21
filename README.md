@@ -11,16 +11,20 @@ index build time:
   - hnsw + PQ x16: **6:23:17**
   - hnsw + PQ x64: **1:54:38**
   - hnsw + fp16: **48:22**
+  - hnsw(filter): **1:47:07**
 - pgvector: **3:29:00**
 
 filter:
 
-| option | probability | precision | rps    | note   | file                                                     |
-| ------ | ----------- | --------- | ------ | ------ | -------------------------------------------------------- |
-| rust   | 0.5         | 97.22%    | 382.08 |        | [rust-0.5-filter.json](rust-0.5-filter.json)             |
-| rust   | 0.1         | 86.24%    | 366.17 |        | [rust-0.1-filter.json](rust-0.1-filter.json)             |
-| rust   | 0.01        | 9.96%     | 375.20 |        | [rust-0.01-filter.json](rust-0.01-filter.json)           |
-| rust   | 0.01        | 86.68%    | 109.34 | k=1000 | [rust-0.01-filter-1000.json](rust-0.01-filter-1000.json) |
+| option | probability | precision | rps     | note   | file                                                       |
+| ------ | ----------- | --------- | ------- | ------ | ---------------------------------------------------------- |
+|        | 0.5         | 95.27%    | 1142.06 |        | [rust-0.5-filter.json](rust-0.5-filter.json)               |
+|        | 0.1         | 83.29%    | 1098.98 |        | [rust-0.1-filter.json](rust-0.1-filter.json)               |
+|        | 0.01        | 9.94%     | 1093.60 |        | [rust-0.01-filter.json](rust-0.01-filter.json)             |
+|        | 0.01        | 85.31%    | 345.24  | k=1000 | [rust-0.01-filter-1000.json](rust-0.01-filter-1000.json)   |
+| vbase  | 0.5         | 94.74%    | 1102.13 |        | [rust-0.5-filter-vbase.json](rust-0.5-filter-vbase.json)   |
+| vbase  | 0.1         | 86.24%    | 786.24  |        | [rust-0.1-filter-vbase.json](rust-0.1-filter-vbase.json)   |
+| vbase  | 0.01        | 36.63%    | 204.01  |        | [rust-0.01-filter-vbase.json](rust-0.01-filter-vbase.json) |
 
 without filter:
 
