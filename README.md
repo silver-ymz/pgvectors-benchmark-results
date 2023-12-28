@@ -16,15 +16,25 @@ index build time:
 
 filter:
 
-| option | probability | precision | rps     | note   | file                                                       |
-| ------ | ----------- | --------- | ------- | ------ | ---------------------------------------------------------- |
-|        | 0.5         | 95.27%    | 1142.06 |        | [rust-0.5-filter.json](rust-0.5-filter.json)               |
-|        | 0.1         | 83.29%    | 1098.98 |        | [rust-0.1-filter.json](rust-0.1-filter.json)               |
-|        | 0.01        | 9.94%     | 1093.60 |        | [rust-0.01-filter.json](rust-0.01-filter.json)             |
-|        | 0.01        | 85.31%    | 345.24  | k=1000 | [rust-0.01-filter-1000.json](rust-0.01-filter-1000.json)   |
-| vbase  | 0.5         | 94.74%    | 1102.13 |        | [rust-0.5-filter-vbase.json](rust-0.5-filter-vbase.json)   |
-| vbase  | 0.1         | 86.24%    | 786.24  |        | [rust-0.1-filter-vbase.json](rust-0.1-filter-vbase.json)   |
-| vbase  | 0.01        | 36.63%    | 204.01  |        | [rust-0.01-filter-vbase.json](rust-0.01-filter-vbase.json) |
+| option | probability | precision | rps     | note      | file                                                               |
+| ------ | ----------- | --------- | ------- | --------- | ------------------------------------------------------------------ |
+|        | 0.5         | 95.27%    | 1142.06 |           | [rust-0.5-filter.json](rust-0.5-filter.json)                       |
+|        | 0.1         | 83.29%    | 1098.98 |           | [rust-0.1-filter.json](rust-0.1-filter.json)                       |
+|        | 0.01        | 9.94%     | 1093.60 |           | [rust-0.01-filter.json](rust-0.01-filter.json)                     |
+|        | 0.01        | 85.31%    | 345.24  | k=1000    | [rust-0.01-filter-1000.json](rust-0.01-filter-1000.json)           |
+| vbase  | 0.5         | 91.55%    | 1277.11 | range=50  | [rust-0.5-filter-vbase-50.json](rust-0.5-filter-vbase-50.json)     |
+| vbase  | 0.1         | 68.77%    | 911.72  | range=50  | [rust-0.1-filter-vbase-50.json](rust-0.1-filter-vbase-50.json)     |
+| vbase  | 0.01        | 36.28%    | 225.01  | range=50  | [rust-0.01-filter-vbase-50.json](rust-0.01-filter-vbase-50.json)   |
+| vbase  | 0.5         | 95.33%    | 1196.52 |           | [rust-0.5-filter-vbase.json](rust-0.5-filter-vbase.json)           |
+| vbase  | 0.1         | 89.40%    | 846.76  |           | [rust-0.1-filter-vbase.json](rust-0.1-filter-vbase.json)           |
+| vbase  | 0.01        | 37.14%    | 216.95  |           | [rust-0.01-filter-vbase.json](rust-0.01-filter-vbase.json)         |
+| vbase  | 0.5         | 96.95%    | 1052.13 | range=200 | [rust-0.5-filter-vbase-200.json](rust-0.5-filter-vbase-200.json)   |
+| vbase  | 0.1         | 95.47%    | 769.52  | range=200 | [rust-0.1-filter-vbase-200.json](rust-0.1-filter-vbase-200.json)   |
+| vbase  | 0.01        | 43.95%    | 207.06  | range=200 | [rust-0.01-filter-vbase-200.json](rust-0.01-filter-vbase-200.json) |
+| vbase  | 0.5         | 97.96%    | 808.75  | range=500 | [rust-0.5-filter-vbase-500.json](rust-0.5-filter-vbase-500.json)   |
+| vbase  | 0.1         | 97.56%    | 667.82  | range=500 | [rust-0.1-filter-vbase-500.json](rust-0.1-filter-vbase-500.json)   |
+| vbase  | 0.01        | 70.68%    | 190.20  | range=500 | [rust-0.01-filter-vbase-500.json](rust-0.01-filter-vbase-500.json) |
+
 
 without filter:
 
