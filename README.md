@@ -1,5 +1,9 @@
 ## pgvecto.rs benchmark
 
+---
+
+machine: [n2-standard-8](https://cloud.google.com/compute/docs/general-purpose-machines#n2_machine_types) (8 vCPUs, 32 GB memory)
+
 ### laion-768-5m-ip
 
 index build time:
@@ -11,35 +15,44 @@ index build time:
   - hnsw + PQ x16: **6:23:17**
   - hnsw + PQ x64: **1:54:38**
   - hnsw + fp16: **48:22**
-  - hnsw(filter): **1:47:07**
+  - hnsw (filter): **1:47:07**
 - pgvector: **3:29:00**
 
 filter:
 
-| option | probability | precision | rps     | note      | file                                                               |
-| ------ | ----------- | --------- | ------- | --------- | ------------------------------------------------------------------ |
-|        | 0.5         | 95.27%    | 1142.06 |           | [rust-0.5-filter.json](results/rust-0.5-filter.json)                       |
-|        | 0.1         | 83.29%    | 1098.98 |           | [rust-0.1-filter.json](results/rust-0.1-filter.json)                       |
-|        | 0.01        | 9.94%     | 1093.60 |           | [rust-0.01-filter.json](results/rust-0.01-filter.json)                     |
-|        | 0.01        | 85.31%    | 345.24  | k=1000    | [rust-0.01-filter-1000.json](results/rust-0.01-filter-1000.json)           |
-| vbase  | 0.5         | 91.55%    | 1277.11 | range=50  | [rust-0.5-filter-vbase-50.json](results/rust-0.5-filter-vbase-50.json)     |
-| vbase  | 0.1         | 68.77%    | 911.72  | range=50  | [rust-0.1-filter-vbase-50.json](results/rust-0.1-filter-vbase-50.json)     |
-| vbase  | 0.01        | 36.28%    | 225.01  | range=50  | [rust-0.01-filter-vbase-50.json](results/rust-0.01-filter-vbase-50.json)   |
-| vbase  | 0.5         | 95.33%    | 1196.52 |           | [rust-0.5-filter-vbase.json](results/rust-0.5-filter-vbase.json)           |
-| vbase  | 0.1         | 89.40%    | 846.76  |           | [rust-0.1-filter-vbase.json](results/rust-0.1-filter-vbase.json)           |
-| vbase  | 0.01        | 37.14%    | 216.95  |           | [rust-0.01-filter-vbase.json](results/rust-0.01-filter-vbase.json)         |
-| vbase  | 0.5         | 96.95%    | 1052.13 | range=200 | [rust-0.5-filter-vbase-200.json](results/rust-0.5-filter-vbase-200.json)   |
-| vbase  | 0.1         | 95.47%    | 769.52  | range=200 | [rust-0.1-filter-vbase-200.json](results/rust-0.1-filter-vbase-200.json)   |
-| vbase  | 0.01        | 43.95%    | 207.06  | range=200 | [rust-0.01-filter-vbase-200.json](results/rust-0.01-filter-vbase-200.json) |
-| vbase  | 0.5         | 97.96%    | 808.75  | range=500 | [rust-0.5-filter-vbase-500.json](results/rust-0.5-filter-vbase-500.json)   |
-| vbase  | 0.1         | 97.56%    | 667.82  | range=500 | [rust-0.1-filter-vbase-500.json](results/rust-0.1-filter-vbase-500.json)   |
-| vbase  | 0.01        | 70.68%    | 190.20  | range=500 | [rust-0.01-filter-vbase-500.json](results/rust-0.01-filter-vbase-500.json) |
+| probability | precision | rps     | note   | file                                                             |
+| ----------- | --------- | ------- | ------ | ---------------------------------------------------------------- |
+| 0.5         | 95.27%    | 1142.06 |        | [rust-0.5-filter.json](results/rust-0.5-filter.json)             |
+| 0.1         | 83.29%    | 1098.98 |        | [rust-0.1-filter.json](results/rust-0.1-filter.json)             |
+| 0.01        | 9.94%     | 1093.60 |        | [rust-0.01-filter.json](results/rust-0.01-filter.json)           |
+| 0.01        | 85.31%    | 345.24  | k=1000 | [rust-0.01-filter-1000.json](results/rust-0.01-filter-1000.json) |
 
+filter with vbase:
+
+| probability | range | precision | rps     | note   | file                                                                                     |
+| ----------- | ----- | --------- | ------- | ------ | ---------------------------------------------------------------------------------------- |
+| 0.5         | 50    | 91.55%    | 1277.11 |        | [rust-0.5-filter-vbase-50.json](results/rust-0.5-filter-vbase-50.json)                   |
+| 0.5         | 100   | 95.33%    | 1196.52 |        | [rust-0.5-filter-vbase.json](results/rust-0.5-filter-vbase.json)                         |
+| 0.5         | 200   | 96.95%    | 1052.13 |        | [rust-0.5-filter-vbase-200.json](results/rust-0.5-filter-vbase-200.json)                 |
+| 0.5         | 500   | 97.96%    | 808.75  |        | [rust-0.5-filter-vbase-500.json](results/rust-0.5-filter-vbase-500.json)                 |
+| 0.1         | 50    | 68.77%    | 911.72  |        | [rust-0.1-filter-vbase-50.json](results/rust-0.1-filter-vbase-50.json)                   |
+| 0.1         | 100   | 89.40%    | 846.76  |        | [rust-0.1-filter-vbase.json](results/rust-0.1-filter-vbase.json)                         |
+| 0.1         | 200   | 95.47%    | 769.52  |        | [rust-0.1-filter-vbase-200.json](results/rust-0.1-filter-vbase-200.json)                 |
+| 0.1         | 500   | 97.56%    | 667.82  |        | [rust-0.1-filter-vbase-500.json](results/rust-0.1-filter-vbase-500.json)                 |
+| 0.01        | 50    | 36.28%    | 225.01  |        | [rust-0.01-filter-vbase-50.json](results/rust-0.01-filter-vbase-50.json)                 |
+| 0.01        | 100   | 37.14%    | 216.95  |        | [rust-0.01-filter-vbase.json](results/rust-0.01-filter-vbase.json)                       |
+| 0.01        | 200   | 43.95%    | 207.06  |        | [rust-0.01-filter-vbase-200.json](results/rust-0.01-filter-vbase-200.json)               |
+| 0.01        | 500   | 70.68%    | 190.20  |        | [rust-0.01-filter-vbase-500.json](results/rust-0.01-filter-vbase-500.json)               |
+| -           | -     | -         | -       | -      | -                                                                                        |
+| 0.01        | 50    | 52.30%    | 25.00   | top100 | [rust-0.01-filter-vbase-50-top100.json](results/rust-0.01-filter-vbase-50-top100.json)   |
+| 0.01        | 100   | 50.58%    | 24.79   | top100 | [rust-0.01-filter-vbase-top100.json](results/rust-0.01-filter-vbase-top100.json)         |
+| 0.01        | 200   | 48.19%    | 24.66   | top100 | [rust-0.01-filter-vbase-200-top100.json](results/rust-0.01-filter-vbase-200-top100.json) |
+| 0.01        | 500   | 44.28%    | 24.06   | top100 | [rust-0.01-filter-vbase-500-top100.json](results/rust-0.01-filter-vbase-500-top100.json) |
 
 without filter:
 
-| option | k   | precision | rps    | note       | file                                                 |
-| ------ | --- | --------- | ------ | ---------- | ---------------------------------------------------- |
+| option | k   | precision | rps    | note       | file                                                         |
+| ------ | --- | --------- | ------ | ---------- | ------------------------------------------------------------ |
 |        | 50  | 92.49%    | 881.40 |            | [rust-50.json](results/rust-50.json)                         |
 |        | 100 | 95.68%    | 809.21 |            | [rust-100.json](results/rust-100.json)                       |
 |        | 200 | 97.09%    | 783.08 |            | [rust-200.json](results/rust-200.json)                       |
@@ -69,3 +82,30 @@ without filter:
 | c      | 100 | 95.41%    | 475.95 |            | [c-100.json](results/c-100.json)                             |
 | c      | 200 | 96.90%    | 307.75 |            | [c-200.json](results/c-200.json)                             |
 | c      | 500 | 97.94%    | 161.01 |            | [c-500.json](results/c-500.json)                             |
+
+---
+
+machine: [c3-standard-8](https://cloud.google.com/compute/docs/general-purpose-machines#c3_machine_types) (8 vCPUs, 32 GB memory)
+
+### laion-768-5m-ip
+
+index build time:
+- pgvectors:
+  - hnsw + PQ x4: **5:49:00**
+  - hnsw + fp16: **33:00**
+- pgvector: **2:03:00**
+
+| option | k   | precision | rps     | file                                                                   |
+| ------ | --- | --------- | ------- | ---------------------------------------------------------------------- |
+| PQ x4  | 50  | 90.85%    | 975.75  | [rust-50-pq-x4-machine-2.json](results/rust-50-pq-x4-machine-2.json)   |
+| PQ x4  | 100 | 94.01%    | 705.53  | [rust-100-pq-x4-machine-2.json](results/rust-100-pq-x4-machine-2.json) |
+| PQ x4  | 200 | 95.46%    | 492.85  | [rust-200-pq-x4-machine-2.json](results/rust-200-pq-x4-machine-2.json) |
+| PQ x4  | 500 | 96.21%    | 270.84  | [rust-500-pq-x4-machine-2.json](results/rust-500-pq-x4-machine-2.json) |
+| fp16   | 50  | 91.34%    | 1405.93 | [rust-50-fp16-machine-2.json](results/rust-50-fp16-machine-2.json)     |
+| fp16   | 100 | 94.68%    | 1267.52 | [rust-100-fp16-machine-2.json](results/rust-100-fp16-machine-2.json)   |
+| fp16   | 200 | 96.21%    | 1186.97 | [rust-200-fp16-machine-2.json](results/rust-200-fp16-machine-2.json)   |
+| fp16   | 500 | 96.95%    | 1012.19 | [rust-500-fp16-machine-2.json](results/rust-500-fp16-machine-2.json)   |
+| c      | 50  | 92.50%    | 1003.63 | [c-50-machine-2.json](results/c-50-machine-2.json)                     |
+| c      | 100 | 95.49%    | 728.88  | [c-100-machine-2.json](results/c-100-machine-2.json)                   |
+| c      | 200 | 97.06%    | 496.19  | [c-200-machine-2.json](results/c-200-machine-2.json)                   |
+| c      | 500 | 97.95%    | 255.55  | [c-500-machine-2.json](results/c-500-machine-2.json)                   |
