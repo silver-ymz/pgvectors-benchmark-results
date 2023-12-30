@@ -91,21 +91,41 @@ machine: [c3-standard-8](https://cloud.google.com/compute/docs/general-purpose-m
 
 index build time:
 - pgvectors:
+  - hnsw: **54:00**
+  - hnsw + SQ: **51:00**
   - hnsw + PQ x4: **5:49:00**
+  - hnsw + PQ x16: **2:41:00**
+  - hnsw + PQ x64: **1:37:00**
   - hnsw + fp16: **33:00**
 - pgvector: **2:03:00**
 
-| option | k   | precision | rps     | file                                                                   |
-| ------ | --- | --------- | ------- | ---------------------------------------------------------------------- |
-| PQ x4  | 50  | 90.85%    | 975.75  | [rust-50-pq-x4-machine-2.json](results/rust-50-pq-x4-machine-2.json)   |
-| PQ x4  | 100 | 94.01%    | 705.53  | [rust-100-pq-x4-machine-2.json](results/rust-100-pq-x4-machine-2.json) |
-| PQ x4  | 200 | 95.46%    | 492.85  | [rust-200-pq-x4-machine-2.json](results/rust-200-pq-x4-machine-2.json) |
-| PQ x4  | 500 | 96.21%    | 270.84  | [rust-500-pq-x4-machine-2.json](results/rust-500-pq-x4-machine-2.json) |
-| fp16   | 50  | 91.34%    | 1405.93 | [rust-50-fp16-machine-2.json](results/rust-50-fp16-machine-2.json)     |
-| fp16   | 100 | 94.68%    | 1267.52 | [rust-100-fp16-machine-2.json](results/rust-100-fp16-machine-2.json)   |
-| fp16   | 200 | 96.21%    | 1186.97 | [rust-200-fp16-machine-2.json](results/rust-200-fp16-machine-2.json)   |
-| fp16   | 500 | 96.95%    | 1012.19 | [rust-500-fp16-machine-2.json](results/rust-500-fp16-machine-2.json)   |
-| c      | 50  | 92.50%    | 1003.63 | [c-50-machine-2.json](results/c-50-machine-2.json)                     |
-| c      | 100 | 95.49%    | 728.88  | [c-100-machine-2.json](results/c-100-machine-2.json)                   |
-| c      | 200 | 97.06%    | 496.19  | [c-200-machine-2.json](results/c-200-machine-2.json)                   |
-| c      | 500 | 97.95%    | 255.55  | [c-500-machine-2.json](results/c-500-machine-2.json)                   |
+| option | k   | precision | rps     | file                                                                     |
+| ------ | --- | --------- | ------- | ------------------------------------------------------------------------ |
+|        | 50  | 92.64%    | 1351.58 | [rust-50-machine-2.json](results/rust-50-machine-2.json)                 |
+|        | 100 | 95.75%    | 1211.65 | [rust-100-machine-2.json](results/rust-100-machine-2.json)               |
+|        | 200 | 97.19%    | 1136.96 | [rust-200-machine-2.json](results/rust-200-machine-2.json)               |
+|        | 500 | 98.01%    | 870.02  | [rust-500-machine-2.json](results/rust-500-machine-2.json)               |
+| SQ     | 50  | 90.73%    | 1383.45 | [rust-50-sq-machine-2.json](results/rust-50-sq-machine-2.json)           |
+| SQ     | 100 | 93.82%    | 1251.76 | [rust-100-sq-machine-2.json](results/rust-100-sq-machine-2.json)         |
+| SQ     | 200 | 95.29%    | 1208.06 | [rust-200-sq-machine-2.json](results/rust-200-sq-machine-2.json)         |
+| SQ     | 500 | 96.05%    | 942.06  | [rust-500-sq-machine-2.json](results/rust-500-sq-machine-2.json)         |
+| PQ x4  | 50  | 90.85%    | 975.75  | [rust-50-pq-x4-machine-2.json](results/rust-50-pq-x4-machine-2.json)     |
+| PQ x4  | 100 | 94.01%    | 705.53  | [rust-100-pq-x4-machine-2.json](results/rust-100-pq-x4-machine-2.json)   |
+| PQ x4  | 200 | 95.46%    | 492.85  | [rust-200-pq-x4-machine-2.json](results/rust-200-pq-x4-machine-2.json)   |
+| PQ x4  | 500 | 96.21%    | 270.84  | [rust-500-pq-x4-machine-2.json](results/rust-500-pq-x4-machine-2.json)   |
+| PQ x16 | 50  | 64.82%    | 1284.55 | [rust-50-pq-x16-machine-2.json](results/rust-50-pq-x16-machine-2.json)   |
+| PQ x16 | 100 | 67.16%    | 1099.84 | [rust-100-pq-x16-machine-2.json](results/rust-100-pq-x16-machine-2.json) |
+| PQ x16 | 200 | 68.52%    | 895.42  | [rust-200-pq-x16-machine-2.json](results/rust-200-pq-x16-machine-2.json) |
+| PQ x16 | 500 | 69.28%    | 569.28  | [rust-500-pq-x16-machine-2.json](results/rust-500-pq-x16-machine-2.json) |
+| PQ x64 | 50  | 14.68%    | 1362.89 | [rust-50-pq-x64-machine-2.json](results/rust-50-pq-x64-machine-2.json)   |
+| PQ x64 | 100 | 17.44%    | 1255.63 | [rust-100-pq-x64-machine-2.json](results/rust-100-pq-x64-machine-2.json) |
+| PQ x64 | 200 | 19.68%    | 1168.35 | [rust-200-pq-x64-machine-2.json](results/rust-200-pq-x64-machine-2.json) |
+| PQ x64 | 500 | 21.37%    | 960.10  | [rust-500-pq-x64-machine-2.json](results/rust-500-pq-x64-machine-2.json) |
+| fp16   | 50  | 91.34%    | 1405.93 | [rust-50-fp16-machine-2.json](results/rust-50-fp16-machine-2.json)       |
+| fp16   | 100 | 94.68%    | 1267.52 | [rust-100-fp16-machine-2.json](results/rust-100-fp16-machine-2.json)     |
+| fp16   | 200 | 96.21%    | 1186.97 | [rust-200-fp16-machine-2.json](results/rust-200-fp16-machine-2.json)     |
+| fp16   | 500 | 96.95%    | 1012.19 | [rust-500-fp16-machine-2.json](results/rust-500-fp16-machine-2.json)     |
+| c      | 50  | 92.50%    | 1003.63 | [c-50-machine-2.json](results/c-50-machine-2.json)                       |
+| c      | 100 | 95.49%    | 728.88  | [c-100-machine-2.json](results/c-100-machine-2.json)                     |
+| c      | 200 | 97.06%    | 496.19  | [c-200-machine-2.json](results/c-200-machine-2.json)                     |
+| c      | 500 | 97.95%    | 255.55  | [c-500-machine-2.json](results/c-500-machine-2.json)                     |
