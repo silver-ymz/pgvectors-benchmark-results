@@ -29,37 +29,38 @@ filter:
 
 filter with vbase:
 
-| probability | range | precision | rps     | note                       | file                                                                                                                             |
-| ----------- | ----- | --------- | ------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| 0.5         | 50    | 91.55%    | 1277.11 |                            | [rust-0.5-filter-vbase-50.json](results/rust-0.5-filter-vbase-50.json)                                                           |
-| 0.5         | 100   | 95.33%    | 1196.52 |                            | [rust-0.5-filter-vbase.json](results/rust-0.5-filter-vbase.json)                                                                 |
-| 0.5         | 200   | 96.95%    | 1052.13 |                            | [rust-0.5-filter-vbase-200.json](results/rust-0.5-filter-vbase-200.json)                                                         |
-| 0.5         | 500   | 97.96%    | 808.75  |                            | [rust-0.5-filter-vbase-500.json](results/rust-0.5-filter-vbase-500.json)                                                         |
-| 0.1         | 50    | 68.77%    | 911.72  |                            | [rust-0.1-filter-vbase-50.json](results/rust-0.1-filter-vbase-50.json)                                                           |
-| 0.1         | 100   | 89.40%    | 846.76  |                            | [rust-0.1-filter-vbase.json](results/rust-0.1-filter-vbase.json)                                                                 |
-| 0.1         | 200   | 95.47%    | 769.52  |                            | [rust-0.1-filter-vbase-200.json](results/rust-0.1-filter-vbase-200.json)                                                         |
-| 0.1         | 500   | 97.56%    | 667.82  |                            | [rust-0.1-filter-vbase-500.json](results/rust-0.1-filter-vbase-500.json)                                                         |
-| 0.01        | 50    | 36.28%    | 225.01  |                            | [rust-0.01-filter-vbase-50.json](results/rust-0.01-filter-vbase-50.json)                                                         |
-| 0.01        | 100   | 37.14%    | 216.95  |                            | [rust-0.01-filter-vbase.json](results/rust-0.01-filter-vbase.json)                                                               |
-| 0.01        | 200   | 43.95%    | 207.06  |                            | [rust-0.01-filter-vbase-200.json](results/rust-0.01-filter-vbase-200.json)                                                       |
-| 0.01        | 500   | 70.68%    | 190.20  |                            | [rust-0.01-filter-vbase-500.json](results/rust-0.01-filter-vbase-500.json)                                                       |
-| -           | -     | -         | -       | -                          | -                                                                                                                                |
-| 0.01        | 50    | 52.30%    | 25.00   | top100                     | [rust-0.01-filter-vbase-50-top100.json](results/rust-0.01-filter-vbase-50-top100.json)                                           |
-| 0.01        | 100   | 50.58%    | 24.79   | top100                     | [rust-0.01-filter-vbase-top100.json](results/rust-0.01-filter-vbase-top100.json)                                                 |
-| 0.01        | 200   | 48.19%    | 24.66   | top100                     | [rust-0.01-filter-vbase-200-top100.json](results/rust-0.01-filter-vbase-200-top100.json)                                         |
-| 0.01        | 500   | 44.28%    | 24.06   | top100                     | [rust-0.01-filter-vbase-500-top100.json](results/rust-0.01-filter-vbase-500-top100.json)                                         |
-| 0.01        | 50    | 51.36%    | 24.70   | top100,m=16                | [rust-0.01-filter-vbase-50-top100-m16.json](results/rust-0.01-filter-vbase-50-top100-m16.json)                                   |
-| 0.01        | 100   | 49.38%    | 24.65   | top100,m=16                | [rust-0.01-filter-vbase-top100-m16.json](results/rust-0.01-filter-vbase-top100-m16.json)                                         |
-| 0.01        | 200   | 46.55%    | 24.43   | top100,m=16                | [rust-0.01-filter-vbase-200-top100-m16.json](results/rust-0.01-filter-vbase-200-top100-m16.json)                                 |
-| 0.01        | 500   | 42.14%    | 23.80   | top100,m=16                | [rust-0.01-filter-vbase-500-top100-m16.json](results/rust-0.01-filter-vbase-500-top100-m16.json)                                 |
-| 0.01        | 50    | 49.48%    | 24.27   | top100,m=32                | [rust-0.01-filter-vbase-50-top100-m32.json](results/rust-0.01-filter-vbase-50-top100-m32.json)                                   |
-| 0.01        | 100   | 46.98%    | 24.33   | top100,m=32                | [rust-0.01-filter-vbase-top100-m32.json](results/rust-0.01-filter-vbase-top100-m32.json)                                         |
-| 0.01        | 200   | 43.63%    | 24.07   | top100,m=32                | [rust-0.01-filter-vbase-200-top100-m32.json](results/rust-0.01-filter-vbase-200-top100-m32.json)                                 |
-| 0.01        | 500   | 38.47%    | 23.46   | top100,m=32                | [rust-0.01-filter-vbase-500-top100-m32.json](results/rust-0.01-filter-vbase-500-top100-m32.json)                                 |
-| 0.01        | 50    | 53.36%    | 24.86   | top100,ef_construction=100 | [rust-0.01-filter-vbase-50-top100-ef_construction-100.json](results/rust-0.01-filter-vbase-50-top100-ef_construction-100.json)   |
-| 0.01        | 100   | 51.91%    | 24.67   | top100,ef_construction=100 | [rust-0.01-filter-vbase-top100-ef_construction-100.json](results/rust-0.01-filter-vbase-top100-ef_construction-100.json)         |
-| 0.01        | 200   | 49.83%    | 24.53   | top100,ef_construction=100 | [rust-0.01-filter-vbase-200-top100-ef_construction-100.json](results/rust-0.01-filter-vbase-200-top100-ef_construction-100.json) |
-| 0.01        | 500   | 46.49%    | 24.03   | top100,ef_construction=100 | [rust-0.01-filter-vbase-500-top100-ef_construction-100.json](results/rust-0.01-filter-vbase-500-top100-ef_construction-100.json) |
+| probability | range | precision | rps     | note                | file                                                                                                                             |
+| ----------- | ----- | --------- | ------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| top10       | -     | -         | -       | -                   | -                                                                                                                                |
+| 0.5         | 50    | 91.55%    | 1277.11 |                     | [rust-0.5-filter-vbase-50.json](results/rust-0.5-filter-vbase-50.json)                                                           |
+| 0.5         | 100   | 95.33%    | 1196.52 |                     | [rust-0.5-filter-vbase.json](results/rust-0.5-filter-vbase.json)                                                                 |
+| 0.5         | 200   | 96.95%    | 1052.13 |                     | [rust-0.5-filter-vbase-200.json](results/rust-0.5-filter-vbase-200.json)                                                         |
+| 0.5         | 500   | 97.96%    | 808.75  |                     | [rust-0.5-filter-vbase-500.json](results/rust-0.5-filter-vbase-500.json)                                                         |
+| 0.1         | 50    | 68.77%    | 911.72  |                     | [rust-0.1-filter-vbase-50.json](results/rust-0.1-filter-vbase-50.json)                                                           |
+| 0.1         | 100   | 89.40%    | 846.76  |                     | [rust-0.1-filter-vbase.json](results/rust-0.1-filter-vbase.json)                                                                 |
+| 0.1         | 200   | 95.47%    | 769.52  |                     | [rust-0.1-filter-vbase-200.json](results/rust-0.1-filter-vbase-200.json)                                                         |
+| 0.1         | 500   | 97.56%    | 667.82  |                     | [rust-0.1-filter-vbase-500.json](results/rust-0.1-filter-vbase-500.json)                                                         |
+| 0.01        | 50    | 36.28%    | 225.01  |                     | [rust-0.01-filter-vbase-50.json](results/rust-0.01-filter-vbase-50.json)                                                         |
+| 0.01        | 100   | 37.14%    | 216.95  |                     | [rust-0.01-filter-vbase.json](results/rust-0.01-filter-vbase.json)                                                               |
+| 0.01        | 200   | 43.95%    | 207.06  |                     | [rust-0.01-filter-vbase-200.json](results/rust-0.01-filter-vbase-200.json)                                                       |
+| 0.01        | 500   | 70.68%    | 190.20  |                     | [rust-0.01-filter-vbase-500.json](results/rust-0.01-filter-vbase-500.json)                                                       |
+| top100      | -     | -         | -       | -                   | -                                                                                                                                |
+| 0.01        | 50    | 52.30%    | 25.00   |                     | [rust-0.01-filter-vbase-50-top100.json](results/rust-0.01-filter-vbase-50-top100.json)                                           |
+| 0.01        | 100   | 50.58%    | 24.79   |                     | [rust-0.01-filter-vbase-top100.json](results/rust-0.01-filter-vbase-top100.json)                                                 |
+| 0.01        | 200   | 48.19%    | 24.66   |                     | [rust-0.01-filter-vbase-200-top100.json](results/rust-0.01-filter-vbase-200-top100.json)                                         |
+| 0.01        | 500   | 44.28%    | 24.06   |                     | [rust-0.01-filter-vbase-500-top100.json](results/rust-0.01-filter-vbase-500-top100.json)                                         |
+| 0.01        | 50    | 51.36%    | 24.70   | m=16                | [rust-0.01-filter-vbase-50-top100-m16.json](results/rust-0.01-filter-vbase-50-top100-m16.json)                                   |
+| 0.01        | 100   | 49.38%    | 24.65   | m=16                | [rust-0.01-filter-vbase-top100-m16.json](results/rust-0.01-filter-vbase-top100-m16.json)                                         |
+| 0.01        | 200   | 46.55%    | 24.43   | m=16                | [rust-0.01-filter-vbase-200-top100-m16.json](results/rust-0.01-filter-vbase-200-top100-m16.json)                                 |
+| 0.01        | 500   | 42.14%    | 23.80   | m=16                | [rust-0.01-filter-vbase-500-top100-m16.json](results/rust-0.01-filter-vbase-500-top100-m16.json)                                 |
+| 0.01        | 50    | 49.48%    | 24.27   | m=32                | [rust-0.01-filter-vbase-50-top100-m32.json](results/rust-0.01-filter-vbase-50-top100-m32.json)                                   |
+| 0.01        | 100   | 46.98%    | 24.33   | m=32                | [rust-0.01-filter-vbase-top100-m32.json](results/rust-0.01-filter-vbase-top100-m32.json)                                         |
+| 0.01        | 200   | 43.63%    | 24.07   | m=32                | [rust-0.01-filter-vbase-200-top100-m32.json](results/rust-0.01-filter-vbase-200-top100-m32.json)                                 |
+| 0.01        | 500   | 38.47%    | 23.46   | m=32                | [rust-0.01-filter-vbase-500-top100-m32.json](results/rust-0.01-filter-vbase-500-top100-m32.json)                                 |
+| 0.01        | 50    | 53.36%    | 24.86   | ef_construction=100 | [rust-0.01-filter-vbase-50-top100-ef_construction-100.json](results/rust-0.01-filter-vbase-50-top100-ef_construction-100.json)   |
+| 0.01        | 100   | 51.91%    | 24.67   | ef_construction=100 | [rust-0.01-filter-vbase-top100-ef_construction-100.json](results/rust-0.01-filter-vbase-top100-ef_construction-100.json)         |
+| 0.01        | 200   | 49.83%    | 24.53   | ef_construction=100 | [rust-0.01-filter-vbase-200-top100-ef_construction-100.json](results/rust-0.01-filter-vbase-200-top100-ef_construction-100.json) |
+| 0.01        | 500   | 46.49%    | 24.03   | ef_construction=100 | [rust-0.01-filter-vbase-500-top100-ef_construction-100.json](results/rust-0.01-filter-vbase-500-top100-ef_construction-100.json) |
 
 without filter:
 
