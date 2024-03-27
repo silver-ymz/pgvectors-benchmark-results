@@ -2,6 +2,8 @@
 
 machine: Intel(R) Xeon(R) Platinum 8488C (8 vCPUs, 32 GB memory)
 
+### laion-768-5m-ip
+
 vbase:
 | option | ef_search | precision | rps     |
 | ------ | --------- | --------- | ------- |
